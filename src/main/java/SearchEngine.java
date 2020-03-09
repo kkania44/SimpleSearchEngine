@@ -42,7 +42,7 @@ public class SearchEngine {
         Map<String, Set<Integer>> occurrences = new HashMap<>();
         for (int index = 0; index < data.size(); index++) {
             String line = data.get(index).toLowerCase();
-            String[] splitLine = line.split(" ");
+            String[] splitLine = line.split("\\s+");
             for (String word : splitLine) {
                 if (occurrences.containsKey(word)) {
                     Set<Integer> existingPos = occurrences.get(word);
@@ -63,9 +63,9 @@ public class SearchEngine {
         }
     }
 
-    public static String getSearchQuery() throws IOException {
+    public static String[] getSearchQuery() throws IOException {
         System.out.println("Enter a name or email to search all suitable people.");
-        return reader.readLine().toLowerCase();
+        return reader.readLine().toLowerCase().split("\\s+");
     }
 
 

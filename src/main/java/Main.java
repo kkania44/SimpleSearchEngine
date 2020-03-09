@@ -24,7 +24,7 @@ public class Main {
                 case 1:
                     System.out.println("Choose strategy: ");
                     SearchStrategy strategy = selectSearchStrategy(reader.readLine().toUpperCase());
-                    String[] search = SearchEngine.getSearchQuery().split("\\s+");
+                    String[] search = SearchEngine.getSearchQuery();
                     Set<Integer> match = strategy.search(search, occurrences);
                     SearchEngine.printSearchResult(match, fileData);
 //                    Set<Integer> found = SearchEngine.search(search, occurrences);
